@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "andishkade",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
