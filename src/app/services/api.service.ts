@@ -37,6 +37,7 @@ export class ApiService {
       //   `body was: ${error.error}`);
       console.log(error);
       if (error.status == 401) {
+        console.log(error);
         return throwError(
           { 'code': 401 }
         );
@@ -54,7 +55,7 @@ export class ApiService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         // TODO: test when token is invalid
-        'authorization': 'Bearer d' + token
+        'authorization': 'Bearer ' + token
       })
     }
 
