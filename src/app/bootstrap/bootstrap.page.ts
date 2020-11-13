@@ -48,12 +48,13 @@ export class BootstrapPage implements OnInit {
         this.router.navigateByUrl('/home');
       });
       await this.toastService.presentToast("Login successfull!");
-      // await this.alertService.present(200);
     } catch (e) {
       // fixme when login page created (remove me)
       localStorage.clear();
       this.router.navigateByUrl('/login');
       console.log(e);
+      //fixme these peace of code when interception implemented as auth guard
+      await this.alertService.present(200);
     }
     await loading.dismiss();
   }
