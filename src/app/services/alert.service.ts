@@ -7,40 +7,37 @@ import { Alert } from '../models/alert';
 })
 export class AlertService {
 
-  alert
 
   constructor(
     public alertCtrl: AlertController,
-     
-  ) { 
-    this.alert= new Alert();
+  ) {
   }
 
 
-  async present(code) {
-    this.getAlertByCode(code);
+  async present(alertMessage) {
     const alert = await this.alertCtrl.create({
-      message: this.alert.message,
-      subHeader: this.alert.subHeader,
+      message: alertMessage.message,
+      subHeader: alertMessage.subHeader,
       buttons: ['OK']
     });
     await alert.present();
   }
 
-  getAlertByCode(code) {
+  async presentByCode(code) {
+    let alert: Alert;
     switch (code) {
       case 401:
-        this.alert.message = "token is invalid";
-        this.alert.message = "please login!";
+        alert.message = "token is invalid";
+        alert.message = "please login!";
         break;
         case 200:
-          this.alert.message = "token is valid";
-          this.alert.message = "welcome";
+          alert.message = "token is valid";
+          alert.message = "welcome";
           break;
 
       default:
         break;
     }
+    this.present(alert);
   }
-
 }
