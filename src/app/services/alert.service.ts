@@ -7,11 +7,14 @@ import { Alert } from '../models/alert';
 })
 export class AlertService {
 
+  alert
 
   constructor(
     public alertCtrl: AlertController,
-    public alert: Alert
-  ) { }
+     
+  ) { 
+    this.alert= new Alert();
+  }
 
 
   async present(code) {
