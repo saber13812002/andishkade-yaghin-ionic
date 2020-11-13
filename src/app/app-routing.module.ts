@@ -10,6 +10,22 @@ const routes: Routes = [
     path: 'bootstrap',
     loadChildren: () => import('./bootstrap/bootstrap.module').then( m => m.BootstrapPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
 ];
 @NgModule({
   imports: [
