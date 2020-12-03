@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>ورود</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+    <ion-item>
+      <ion-label>ایمیل</ion-label>
+      <ion-input [(ngModel)]="email" placeholder="ایمیل" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>رمز</ion-label>
+      <ion-input [(ngModel)]="password" placeholder="رمز" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button color="primary" class="submit-btn" expand="block" (click)="signIn()">Sign In</ion-button>
+    </ion-item>
 </ion-content>

@@ -70,8 +70,15 @@ export class ApiService {
 
   // Login
   login(credential): Observable<User> {
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+
     return this.http
-      .post<User>(this.ENV.login(), JSON.stringify(credential), this.httpOptions)
+      .post<User>(this.ENV.login(), JSON.stringify(credential), httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
