@@ -13,7 +13,7 @@ import { Alert } from '../models/alert';
 })
 export class BootstrapPage implements OnInit {
 
-  token;
+  accessTokenObject;
 
   constructor(public navCtrl: NavController,
     private loadingCtrl: LoadingController,
@@ -25,10 +25,10 @@ export class BootstrapPage implements OnInit {
 
   ngOnInit() {
 
-    this.token = localStorage.getItem('token');
+    this.accessTokenObject = JSON.parse(localStorage.getItem('accessToken'));
 
-    if (this.token != null) {
-      this.validateToken(this.token);
+    if (this.accessTokenObject != null) {
+      this.validateToken(this.accessTokenObject.accessToken);
     }
     else {
       localStorage.clear();
@@ -42,7 +42,7 @@ export class BootstrapPage implements OnInit {
     });
     await loading.present();
     try {
-      await this.apiService.me(this.token).subscribe(data => {
+      await this.apiService.me(jwt).subscribe(data => {
         console.log('data:', data);
         localStorage.setItem('user', JSON.stringify(data));
         this.router.navigateByUrl('/home');
