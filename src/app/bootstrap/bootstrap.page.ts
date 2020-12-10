@@ -14,6 +14,7 @@ import { Alert } from '../models/alert';
 export class BootstrapPage implements OnInit {
 
   accessTokenObject;
+  signUpResult
 
   constructor(public navCtrl: NavController,
     private loadingCtrl: LoadingController,
@@ -26,11 +27,19 @@ export class BootstrapPage implements OnInit {
   ngOnInit() {
   }
 
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
+
     this.accessTokenObject = JSON.parse(localStorage.getItem('accessToken'));
+    this.signUpResult = JSON.parse(localStorage.getItem('signup_result'));
 
     if (this.accessTokenObject != null) {
-      this.validateToken(this.accessTokenObject.accessToken);
+      if (this.validateToken(this.accessTokenObject.accessToken)) {
+        await this.toastService.presentToast("Login successfull!");
+      }
+    }
+    else if (this.signUpResult != null) {
+      this.signUpResult.success == true;
+      this.router.navigateByUrl('/login');
     }
     else {
       localStorage.clear();
@@ -48,8 +57,8 @@ export class BootstrapPage implements OnInit {
         console.log('data:', data);
         localStorage.setItem('userInfo', JSON.stringify(data));
         this.router.navigateByUrl('/home');
+        return true;
       });
-      await this.toastService.presentToast("Login successfull!");
     } catch (e) {
       // fixme when login page created (remove me)
       localStorage.clear();
