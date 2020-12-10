@@ -84,6 +84,22 @@ export class ApiService {
         catchError(this.handleError)
       )
   }
+  // singup
+  signUp(credential): Observable<User> {
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+
+    return this.http
+      .post<User>(this.ENV.signup(), JSON.stringify(credential), httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 
 
   // Create a new item
