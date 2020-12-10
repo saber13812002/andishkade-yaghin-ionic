@@ -42,7 +42,7 @@ export class LoginPage implements OnInit {
       await this.apiService.login(credential).subscribe(data => {
         console.log('data:', data);
         localStorage.setItem('accessToken', JSON.stringify(data));
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/bootstrap');
       });
       await this.toastService.presentToast("Login successfull!");
     } catch (e) {
