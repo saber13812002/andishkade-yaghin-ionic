@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { ApiService } from './../services/api.service';
 import { LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { SignInfo } from './../models/signinfo';
+
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginPage implements OnInit {
 
-  validations_form: FormGroup;
-  email = "saber.tabatabaee@gmail.com";
-  password = "";
+  email = "saber.tabatabaee1@gmail.com";
+  password = "123456";
+
+  sign_up_fields : SignInfo;
 
   constructor(
-    public formBuilder: FormBuilder,
     private loadingCtrl: LoadingController,
     private apiService: ApiService,
     private router: Router,
@@ -28,7 +29,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-
 
   async signIn() {
     console.log("clicked")
@@ -55,5 +55,13 @@ export class LoginPage implements OnInit {
     }
     await loading.dismiss();
 
+  }
+
+
+  /**
+   * signup
+   */
+  public signup() {
+    this.router.navigateByUrl('/register');
   }
 }
