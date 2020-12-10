@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>register</ion-title>
+    <ion-button ion-button block clear menuClose slot="end" (click)="login()">login</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>ایمیل</ion-label>
+    <ion-input [(ngModel)]="email" placeholder="ایمیل" type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>نام</ion-label>
+    <ion-input [(ngModel)]="name" placeholder="نام" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>نام کاربری</ion-label>
+    <ion-input [(ngModel)]="username" placeholder="نام کاربری" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>رمز</ion-label>
+    <ion-input [(ngModel)]="password" placeholder="رمز" type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>تکرار رمز</ion-label>
+    <ion-input [(ngModel)]="password" placeholder="تکرار رمز" type="password"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-button color="primary" class="submit-btn" expand="block" (click)="signUp()">Sign Up</ion-button>
+  </ion-item>
 </ion-content>
