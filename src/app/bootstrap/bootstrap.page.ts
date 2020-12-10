@@ -24,7 +24,9 @@ export class BootstrapPage implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
 
+  ionViewWillEnter() {
     this.accessTokenObject = JSON.parse(localStorage.getItem('accessToken'));
 
     if (this.accessTokenObject != null) {
@@ -44,7 +46,7 @@ export class BootstrapPage implements OnInit {
     try {
       await this.apiService.me(jwt).subscribe(data => {
         console.log('data:', data);
-        localStorage.setItem('user', JSON.stringify(data));
+        localStorage.setItem('userInfo', JSON.stringify(data));
         this.router.navigateByUrl('/home');
       });
       await this.toastService.presentToast("Login successfull!");
