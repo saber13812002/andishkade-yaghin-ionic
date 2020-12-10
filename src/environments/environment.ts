@@ -11,6 +11,7 @@ export const environment = {
     base_url: "http://185.142.159.149:6912",
     prefix: "/api",
     login: "/auth/signin",
+    signup: "/auth/signup",
     me: "/user/me",
   }
 

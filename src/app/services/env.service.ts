@@ -12,6 +12,10 @@ export class ENVService {
     return environment.api.base_url + environment.api.prefix + environment.api.login;
   }
 
+  public signup() {
+    return environment.api.base_url + environment.api.prefix + environment.api.signup;
+  }
+
   public me() {
     return environment.api.base_url + environment.api.prefix + environment.api.me;
   }
