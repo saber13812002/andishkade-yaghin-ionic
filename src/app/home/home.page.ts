@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     private navCtrl:NavController,
+    private menu: MenuController,
   ) { }
 
   ngOnInit() {
@@ -37,4 +38,5 @@ export class HomePage implements OnInit {
   public logout() {
     this.router.navigateByUrl('/logout');
   }
+
 }
