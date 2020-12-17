@@ -49,6 +49,26 @@ export class ApiService {
   };
 
 
+  // Get Profile
+  profile(): Observable<User> {
+
+    let accessToken = JSON.parse(localStorage.getItem('accessToken'));
+
+    let httpOptionsWithToken = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + accessToken.token
+      })
+    }
+    console.log(httpOptionsWithToken,this.ENV.profile())
+    return this.http
+      .get<User>(this.ENV.profile(), httpOptionsWithToken)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   // Get login user by token
   me(token): Observable<User> {
     let httpOptionsWithToken = {

@@ -19,4 +19,11 @@ export class ENVService {
   public me() {
     return environment.api.base_url + environment.api.prefix + environment.api.me;
   }
+
+  public profile(){
+
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    return environment.api.base_url + environment.api.prefix + environment.api.users + userInfo.username;
+
+  }
 }
