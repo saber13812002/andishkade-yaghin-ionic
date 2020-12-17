@@ -13,6 +13,7 @@ export const environment = {
     login: "/auth/signin",
     signup: "/auth/signup",
     me: "/user/me",
+    users: "/users/",
   }
 
 };

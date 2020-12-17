@@ -12,7 +12,7 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  navigate : any;
+  navigate: any;
 
   public selectedIndex = 0;
   public appPages = [
@@ -40,6 +40,11 @@ export class AppComponent {
       title: 'Trash',
       url: '/folder/Trash',
       icon: 'trash'
+    },
+    {
+      title: 'Profile',
+      url: '/profile',
+      icon: 'person'
     },
     {
       title: 'Spam',
@@ -76,26 +81,25 @@ export class AppComponent {
   }
 
 
-  sideMenu()
-  {
+  sideMenu() {
     this.navigate =
-    [
-      {
-        title : "Home",
-        url   : "/home",
-        icon  : "home"
-      },
-      {
-        title : "Chat",
-        url   : "/chat",
-        icon  : "chatboxes"
-      },
-      {
-        title : "Contacts",
-        url   : "/contacts",
-        icon  : "contacts"
-      },
-    ]
+      [
+        {
+          title: "Home",
+          url: "/home",
+          icon: "home"
+        },
+        {
+          title: "Chat",
+          url: "/chat",
+          icon: "chatboxes"
+        },
+        {
+          title: "Contacts",
+          url: "/contacts",
+          icon: "contacts"
+        },
+      ]
   }
 
 }
