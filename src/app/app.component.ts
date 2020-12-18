@@ -50,6 +50,11 @@ export class AppComponent {
       title: 'Spam',
       url: '/folder/Spam',
       icon: 'warning'
+    },
+    {
+      title: 'Settings',
+      url: '/setting',
+      icon: 'cog'
     }
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
