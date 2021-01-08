@@ -26,4 +26,8 @@ export class ENVService {
     return environment.api.base_url + environment.api.prefix + environment.api.users + userInfo.username;
 
   }
+
+  public polls(){
+    return environment.api.base_url + environment.api.prefix + environment.api.polls;
+  }
 }

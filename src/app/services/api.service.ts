@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { ENVService } from './env.service';
 import { User } from '../models/user';
+import { Poll } from '../models/poll';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,26 @@ export class ApiService {
     console.log(httpOptionsWithToken,this.ENV.profile())
     return this.http
       .get<User>(this.ENV.profile(), httpOptionsWithToken)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // Get Polls
+  polls(): Observable<Poll> {
+
+    // let accessToken = JSON.parse(localStorage.getItem('accessToken'));
+
+    // let httpOptionsWithToken = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //     'authorization': 'Bearer ' + accessToken.token
+    //   })
+    // }
+    // console.log(httpOptionsWithToken,this.ENV.profile())
+    return this.http
+      .get<Poll>(this.ENV.polls())
       .pipe(
         retry(2),
         catchError(this.handleError)

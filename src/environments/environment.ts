@@ -14,6 +14,7 @@ export const environment = {
     signup: "/auth/signup",
     me: "/user/me",
     users: "/users/",
+    polls: "/polls",
   }
 
 };

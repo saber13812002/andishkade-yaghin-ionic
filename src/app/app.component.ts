@@ -22,6 +22,11 @@ export class AppComponent {
       icon: 'mail'
     },
     {
+      title: 'polls',
+      url: '/polls',
+      icon: 'mail'
+    },
+    {
       title: 'Outbox',
       url: '/folder/Outbox',
       icon: 'paper-plane'

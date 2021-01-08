@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>polls</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let poll of polls">
+    <div class="poll-header">
+      <div class="poll-creator-info">
+        <a class="creator-link" href="/users/{{poll.createdBy.username}}">
+          <span class="poll-creator-name">{{poll.createdBy.username}}</span>
+          <span class="poll-creator-username">@{{poll.createdBy.username}}</span>
+          <span class="poll-creation-date">
+            {{poll.creationDateTime}}
+          </span>
+        </a>
+      </div>
+      <div class="poll-question">
+        {{poll.question}}
+        <br>...
+      </div>
+    </div>
+
+    <div class="poll-choices">
+      <div class="ant-radio-group poll-choice-radio-group">
+        <label *ngFor="let choice of poll.choices" class="poll-choice-radio ant-radio-wrapper">
+          <span class="ant-radio">
+            <input type="radio" class="ant-radio-input" value="{{choice.id}}">
+            <span class="ant-radio-inner">
+            </span>
+          </span>
+          <span>
+            {{choice.text}}
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="poll-footer">
+      <button disabled="" type="button" class="ant-btn vote-button">
+        <span>Vote</span>
+      </button>
+      <span class="total-votes">
+        {{poll.totalVotes}} votes
+
+      </span>
+      <span class="separator"></span>
+      <span class="time-left">
+        {{poll.expirationDateTimeInDaysPhrase}}
+      </span>
+    </div>
+
+  </div>
+</ion-content>
