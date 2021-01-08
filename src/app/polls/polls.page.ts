@@ -43,6 +43,11 @@ export class PollsPage implements OnInit {
 
         let polls: any = data;
         this.polls = polls.content;
+        this.polls.forEach(element => {
+          element.expirationDateTimeInDaysMiliSeconds = new Date(element.expirationDateTime).getTime() - new Date().getTime();
+          element.expirationDateTimeInDays = Math.round(element.expirationDateTimeInDaysMiliSeconds/3600000);
+          element.expirationDateTimeInDaysPhrase =  element.expirationDateTimeInDays >0 ? element.expirationDateTimeInDays + " days left" : element.expirationDateTimeInDays+ " days ago"
+        });
       });
       await this.toastService.presentToast("your polls !");
     } catch (e) {
